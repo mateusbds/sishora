@@ -1,0 +1,10 @@
+ul .selecao a {
+    margin-top: -10px;
+}
+
+ul .selecao {
+    margin-top: 10px;
+    height: 30px;
+    background: #dddddd;
+    border-radius: 22px;
+}
