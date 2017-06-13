@@ -35,13 +35,13 @@
     <table id="example" class="display table table-striped table-bordered" cellspacing="0" width="100%">
         <thead>
             <tr>
-                <!--<th scope="col"><?= $this->Paginator->sort('id') ?></th>-->
+                <th scope="col"><?= $this->Paginator->sort('matricula', ['label' => 'Matrícula']) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('username', ['label' => 'Usuário']) ?></th>
                 <!--<th scope="col"><?= $this->Paginator->sort('password') ?></th>-->
                 <th scope="col"><?= $this->Paginator->sort('name', ['label' => 'Nome']) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('email', ['label' => 'Email']) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('grade_id', ['label' => 'Grade']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('team_id', ['label' => 'Turma Concludente']) ?></th>
+                <!--<th scope="col"><?= $this->Paginator->sort('team_id', ['label' => 'Turma Concludente']) ?></th>-->
                 <th scope="col"><?= $this->Paginator->sort('profiles_id', ['label' => 'Perfil']) ?></th>
                 <th scope="col" class="actions"><?= __('Ação') ?></th>
             </tr>
@@ -49,11 +49,12 @@
         <tbody>
             <?php foreach ($users as $user): ?>
             <tr>
+                <td><?= $user->matricula ?></td>
                 <td><?= h($user->username) ?></td>
                 <td><?= h($user->name) ?></td>
                 <td><?= h($user->email) ?></td>
                 <td><?= $user->has('grade') ? $user->grade->description : '' ?></td>
-                <td><?= $user->has('team') ? $user->team->ano.'.'.$user->team->semestre : '' ?></td>
+                <!--<td><?= $user->has('team') ? $user->team->ano.'.'.$user->team->semestre : '' ?></td>-->
                 <td><?= $user->has('profile') ? $user->profile->name : '' ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('Editar'), ['action' => 'edit', $user->id], ['class' => 'btn-warning btn btn-xs', 'rel' => 'modal:open']) ?>

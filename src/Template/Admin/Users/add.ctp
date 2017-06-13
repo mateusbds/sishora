@@ -8,6 +8,7 @@
     <legend><?= __('Novo') ?></legend>
     <div class="form-group" >
     <?php
+        echo $this->Form->input('matricula', ['label' => 'Matrícula/SIAPE', 'class' => 'form-control']);
         echo $this->Form->input('username', ['label' => 'Usuário', 'class' => 'form-control']);
         echo $this->Form->input('password', ['label' => 'Senha', 'type' => 'password', 'class' => 'form-control']);
         echo $this->Form->input('passwordconfirm', ['label' => 'Confirmar Senha', 'type' => 'password', 'class' => 'form-control passwordConfirm']);

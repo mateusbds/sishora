@@ -75,7 +75,7 @@ class GradesController extends AppController
             'contain' => ['Courses']
         ];
        
-        $grades = $this->paginate($this->Grades->find()->where(['courses.id' => $tempID["course"]]));
+        $grades = $this->paginate($this->Grades->find()->where(['Courses.id' => $tempID["course"]]));
         $this->set(compact('grades'));
         $this->set('_serialize', ['grades']);
     }

@@ -52,7 +52,7 @@
                 <!--<td><?= $this->Number->format($grade->id) ?></td>-->
                 <td><?= $grade->has('course') ? $grade->course->name : '' ?></td>
                 <td><?= h($grade->description) ?></td>
-                <td><?= $this->Number->format($grade->qntHours) ?></td>
+                <td><?= $this->Number->format($grade->qntHours) ?> Horas</td>
                 <td><?php
                     if($grade->status == 1)
                     {

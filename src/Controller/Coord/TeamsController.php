@@ -103,7 +103,7 @@ class TeamsController extends AppController
 
         $tempID = $this->Auth->user();
 
-        $users = $this->Teams->Users->find()->contain(['Profiles', 'Courses', 'Grades', 'Teams'])->where(['profiles.id' => 3, 'Grades.course_id' => $tempID['course'], 'team_id' => $id]);
+        $users = $this->Teams->Users->find()->contain(['Profiles', 'Courses', 'Grades', 'Teams'])->where(['Profiles.id' => 3, 'Grades.course_id' => $tempID['course'], 'team_id' => $id]);
 
         $this->set(compact('teams', 'users'));
         $this->set('_serialize', ['team']);
@@ -151,7 +151,7 @@ class TeamsController extends AppController
             $this->Flash->error(__('Não foi possível adicionar a turma. Por favor, tente novamente.'));
         }
 
-        $users = $this->Teams->Users->find()->contain(['Profiles', 'Courses', 'Grades', 'Teams'])->where(['profiles.id' => 3, 'Grades.course_id' => $tempID['course'], 'team_id IS NULL']);
+        $users = $this->Teams->Users->find()->contain(['Profiles', 'Courses', 'Grades', 'Teams'])->where(['Profiles.id' => 3, 'Grades.course_id' => $tempID['course'], 'team_id IS NULL']);
         $courses = $this->Teams->Courses->find('list', ['limit' => 200]);
         $this->set(compact('team', 'courses', 'users'));
         $this->set('_serialize', ['team']);
@@ -215,7 +215,7 @@ class TeamsController extends AppController
             $this->Flash->error(__('Não foi possível editar a turma. Por favor, tente novamente.'));
         }
 
-        $users = $this->Teams->Users->find()->contain(['Profiles', 'Courses', 'Grades', 'Teams'])->where(['profiles.id' => 3, 'Grades.course_id' => $tempID['course']]);
+        $users = $this->Teams->Users->find()->contain(['Profiles', 'Courses', 'Grades', 'Teams'])->where(['Profiles.id' => 3, 'Grades.course_id' => $tempID['course']]);
         $courses = $this->Teams->Courses->find('list', ['limit' => 200]);
         $this->set(compact('team', 'courses', 'users'));
         $this->set('_serialize', ['team']);
@@ -236,7 +236,7 @@ class TeamsController extends AppController
         $this->loadModel('Users');
         $tempID = $this->Auth->user();
 
-        $users = $this->Teams->Users->find()->contain(['Profiles', 'Courses', 'Grades', 'Teams'])->where(['profiles.id' => 3, 'Grades.course_id' => $tempID['course'], 'team_id' => $id]);
+        $users = $this->Teams->Users->find()->contain(['Profiles', 'Courses', 'Grades', 'Teams'])->where(['Profiles.id' => 3, 'Grades.course_id' => $tempID['course'], 'team_id' => $id]);
 
         if ($this->Teams->delete($team)) {
 
@@ -257,6 +257,9 @@ class TeamsController extends AppController
 
     public function pdfView($id = null)
     {
+        /* TODO: enviar para o pdf todos os alunos e todas as grades. Na view será feito a
+        filtragem dos alunos de acordo com suas horas e as horas da grade que ele está cadastrado. */
+
         $team = $this->Teams->get($id);
         $this->loadModel('Courses');
         $this->loadModel('UsersGradesActivities');
@@ -275,7 +278,7 @@ class TeamsController extends AppController
         $tempID = $this->Auth->user();
 
         $usersGradesActivities = $this->UsersGradesActivities->find();
-        $users = $this->Teams->Users->find()->contain(['Profiles', 'Courses', 'Grades', 'Teams', 'Activitycomphours'])->where(['profiles.id' => 3, 'Grades.course_id' => $tempID['course'], 'team_id' => $id, 'Activitycomphours.hours = Grades.qntHours']);
+        $users = $this->Teams->Users->find()->contain(['Profiles', 'Courses', 'Grades', 'Teams', 'Activitycomphours'])->where(['Profiles.id' => 3, 'Grades.course_id' => $tempID['course'], 'team_id' => $id, 'Activitycomphours.hours = Grades.qntHours']);
         $course = $this->Courses->find()->where(['id' => $tempID['course']]);
         $course = $course->toArray();
 

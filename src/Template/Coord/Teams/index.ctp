@@ -63,7 +63,7 @@
                     <?= $this->Html->link(__('Ver Alunos'), ['action' => 'viewUsers', $team->id],  ['class' => 'btn-primary btn btn-xs', 'rel' => 'modal:open']) ?>
                     <?= $this->Html->link(__('Emitir Relatório'), ['action' => 'pdf_view', $team->id],  ['class' => 'btn-primary btn btn-xs']) ?>
                     <?= $this->Html->link(__('Editar'), ['action' => 'edit', $team->id],  ['class' => 'btn-warning btn btn-xs', 'rel' => 'modal:open']) ?>
-                    <?= $this->Form->postLink(__('Deletar'), ['action' => 'delete', $team->id], ['class' => 'btn-danger btn btn-xs', 'confirm' => __('Você tem certeza que deseja deletar # {0}?', $team->id)]) ?>
+                    <?= $this->Form->postLink(__('Deletar'), ['action' => 'delete', $team->id], ['class' => 'btn-danger btn btn-xs', 'confirm' => __('Você tem certeza que deseja deletar esta grade?')]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

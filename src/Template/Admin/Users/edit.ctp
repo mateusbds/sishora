@@ -9,9 +9,10 @@
     <legend><?= __('Novo') ?></legend>
     <div class="form-group" >
     <?php
+        echo $this->Form->input('matricula', ['label' => 'Matrícula/SIAPE', 'class' => 'form-control']);
         echo $this->Form->input('username', ['label' => 'Usuário', 'class' => 'form-control']);
         echo $this->Form->input('password', ['label' => 'Senha', 'type' => 'password', 'class' => 'form-control']);
-        echo $this->Form->input('passwordconfirm', ['label' => 'Confirmar Senha', 'type' => 'password', 'class' => 'form-control passwordConfirm']);
+        echo $this->Form->input('passwordconfirm', ['label' => 'Confirmar Senha', 'type' => 'password', 'class' => 'form-control passwordConfirm', 'value' => $user['password']]);
         echo $this->Form->label(null, '', ['id' => 'passwordMatch', 'style' => 'display: none; color: red;']);
         echo $this->Form->input('name', ['label' => 'Nome', 'class' => 'form-control']);
         echo $this->Form->input('email', ['label' => 'Email', 'class' => 'form-control']);

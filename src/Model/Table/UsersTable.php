@@ -72,7 +72,9 @@ use Cake\Validation\Validator;
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->integer('id')            ->allowEmpty('id', 'create');
+            ->integer('id')            ->notEmpty('id', 'Matrícula é necessária');
+        $validator
+            ->requirePresence('matricula', 'create')           ->notEmpty('matricula');
         $validator
             ->requirePresence('username', 'create')            ->notEmpty('username', 'Login é necessário');
         $validator

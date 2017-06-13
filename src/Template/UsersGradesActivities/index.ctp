@@ -66,16 +66,17 @@
                 <?= $users['name'] ?>
             </div>
             <div class="col-md-4"><b>Matrícula:</b>
-                <?= $users['id'] ?>
+                <?= $users['matricula'] ?>
             </div>
         </div>
         <div class="row">
             <div class="col-md-8"><b>Curso:</b>
                 <?php if(isset($users['course_name'])) 
-                    $users['course_name'] ?>
+                    echo $users['course_name'] ?>
             </div>
             <div class="col-md-4"><b>Grade:</b>
-                <?= $users['grade_name'] ?>
+                <?php if(isset($users['grade_name'])) 
+                    echo $users['grade_name'] ?>
             </div>
         </div>
         <div class="row">
@@ -108,7 +109,7 @@
             </div>
         </div>
         <div class="progress">
-            <div id="myDiv" class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?= $porcentagem ?>%">
+            <div id="myDiv" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?= $porcentagem ?>%">
             <?= $porcentagem ?>%
             </div>
         </div>

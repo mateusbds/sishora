@@ -33,25 +33,26 @@
         </ul>
     </div>
 </nav>
-<div class="container">
+<div class="container" style="padding-bottom: 15px;">
     <?= $this->Form->create($grade) ?>
     <fieldset class="form-group">
         <legend style="padding-top:20px;"><?= __('Editar') ?></legend>
         <div class="form-group">
-        <?php
-            echo $this->Form->input('description', ['label' => 'Descrição', 'class' => 'form-control']);
-            echo $this->Form->input('qntHours', ['label' => 'Quantidade de Horas', 'class' => 'form-control', 'type' => 'textbox']);
-            echo $this->Form->input('status', ['label' => 'Ativa', 'class' => 'checkbox']);
-        ?>
-    </div>
+            <?php
+                echo $this->Form->input('description', ['label' => 'Descrição', 'class' => 'form-control']);
+                echo $this->Form->input('qntHours', ['label' => 'Quantidade de Horas', 'class' => 'form-control', 'type' => 'textbox']);
+                echo $this->Form->input('status', ['label' => 'Ativa', 'class' => 'checkbox']);
+            ?>
+        </div>
     </fieldset>
     <div class="row container">
         <?= $this->Form->button('Salvar', ['class' => 'btn btn-primary']) ?>
         <?= $this->Form->end() ?>
         <?= $this->Html->link('Cancelar',['action' => 'index'], ['class' => 'btn btn-primary', 'type' => 'button', 'action' => 'index']) ?>
     </div>
-
+</div>
 <!-- Grades Activity -->
+<div class="container" style="margin-top: 15px;">
     <div>
         <legend style="padding-top:20px;"><?= __('Atividades da Grade') ?></legend>
         <?= $this->Html->link(__('Cadastrar'), ['controller' => 'GradesActivities', 'action' => 'add', $id], ['class' => 'btn btn-primary', 'rel' =>'modal:open']) ?>
@@ -89,7 +90,7 @@
                     }
                     ?></td>
                     <td><?= $this->Number->format($gradesActivity->compHours) ?></td>
-                    <td><?= $this->Number->format($gradesActivity->limite) ?></td>
+                    <td><?= $this->Number->format($gradesActivity->limite) ?>%</td>
                     <td><?= $gradesActivity->has('actuation') ? $gradesActivity->actuation->name : '' ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('Editar'), ['controller' => 'GradesActivities', 'action' => 'edit', $gradesActivity->id, $id], ['class' => 'btn-warning btn btn-xs', 'rel' => 'modal:open']) ?>

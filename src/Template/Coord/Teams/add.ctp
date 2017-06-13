@@ -17,8 +17,7 @@
         <div class="col-xs-5">
             <select name="from[]" id="search" class="form-control" size="8" multiple="multiple">
                 <?php foreach ($users as $user): ?>
-                    <?php if($user->team_id == null)
-                    { ?>
+                    <?php if($user->team_id == null) { ?>
                         <option value=<?= $user->id ?>> <?= $user->name ?> </option> 
                     <?php } 
                 endforeach; ?>
@@ -36,7 +35,8 @@
             <select name="to[]" id="search_to" class="form-control" size="8" multiple="multiple">
             </select>
         </div>
-    </div> <!-- Multiselect -->
+    </div> 
+    <!-- Multiselect -->
 </fieldset>
 <div class="row" style="margin-top: 15px;">
     <?= $this->Form->button('Salvar', ['class' => 'btn btn-primary']) ?>
