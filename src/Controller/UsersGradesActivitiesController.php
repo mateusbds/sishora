@@ -194,10 +194,6 @@ class UsersGradesActivitiesController extends AppController
                 $this->Flash->error(__('Uma extensão do PHP interrompeu o upload do arquivo. Contacte o administrador do sistema.'));
                 return $this->redirect(['action' => 'index']);
             }
-            else {
-                $this->Flash->error(__('Algo deu errado. Tente novamente mais tarde.'));
-                return $this->redirect(['action' => 'index']);
-            }
 
             //#############################################################
             $dir = WWW_ROOT.'aluno'.DS.$usersGradesActivity['user_id'].DS;
@@ -409,10 +405,6 @@ class UsersGradesActivitiesController extends AppController
                     }
                     else if($usersGradesActivity['Model']['file_name']['error'] == 8) { //erro nas extensões do php
                         $this->Flash->error(__('Uma extensão do PHP interrompeu o upload do arquivo. Contacte o administrador do sistema.'));
-                        return $this->redirect(['action' => 'index']);
-                    }
-                    else {
-                        $this->Flash->error(__('Algo deu errado. Tente novamente mais tarde.'));
                         return $this->redirect(['action' => 'index']);
                     }
 
