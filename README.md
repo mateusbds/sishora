@@ -11,3 +11,7 @@ Esse sistema é dividido em três níveis de permissão:
 #### Administrador
 
 Quando for necessário efetuar o cadastro de um novo coordenador, o administrador deverá, após a criação desse usuário, criar um novo curso e assimilar aquele novo usuário criado no sistema.
+
+### Bugs conhecidos:
+
+- Redirecionamento ao raw add/edit quando um campo existir no banco de dados.
