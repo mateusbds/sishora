@@ -34,14 +34,13 @@
         </ul>
     </div>
 </nav>
-
 <div class="container">
     <h3><?= __('Usuários') ?></h3>
     <?= $this->Html->link(__('Cadastrar'), ['action' => 'add'], ['class' => 'btn btn-primary', 'rel' => 'modal:open']) ?>
     <table id="example" class="table table-striped table-bordered display" cellspacing="0" width="100%">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('matricula', ['label' => 'Matrícula']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('id', ['label' => 'Matrícula']) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('username', ['label' => 'Usuário']) ?></th>
                 <!--<th scope="col"><?= $this->Paginator->sort('password') ?></th>-->
                 <th scope="col"><?= $this->Paginator->sort('name', ['label' => 'Nome']) ?></th>
